@@ -1,10 +1,17 @@
 <canvas id="project" width="1200" height="600" style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; margin: auto; border:1px solid #000000;"></canvas> 
 <!DOCTYPE html>
 <html>
-	<head>
+	<head onload="startGame()">>
 		<script>
 			var canvas = document.getElementById("project") 
 			var ctx = canvas.getContext("2d");
+
+			var myGamePiece;
+
+			function startGame() {
+   				myGameArea.start();
+    			myGamePiece = new component(30, 570, "red", 10, 120);
+			}
 		</script>
 	</head>
 	<div>
