@@ -13,10 +13,10 @@
 	<body onload="startGame()">
 		<script>
         "x" = function getRandomFloat(10, 1340) {
-  			return Math.random() * (1340 - 10) + 10;
+  			return Math.floor(Math.random() * (1340 - 10 + 1) + 10);
   		}
     	"y" = function getRandomFloat(10, 590) {
-  			return Math.random() * (590 - 10) + 10;
+  			return Math.floor(Math.random() * (590 - 10 + 1) + 10);
     	}
 			function startGame() {
    				myGameArea.start();
