@@ -1,18 +1,44 @@
-<canvas id="project" width="1200" height="600" style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; margin: auto; border:1px solid #000000;"></canvas> 
 <!DOCTYPE html>
 <html>
-	<head onload="startGame()">>
+<head>
+	<style>
+		canvas {
+			position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; 
+			margin: auto; 
+			border:1px solid #000000;
+			background-color: #f1f1f1;
+		}
+	</style>
+</head>
+	<body onload="startGame()">>
 		<script>
-			var canvas = document.getElementById("project") 
-			var ctx = canvas.getContext("2d");
-
 			var myGamePiece;
 
 			function startGame() {
    				myGameArea.start();
-    			myGamePiece = new component(30, 570, "red", 10, 120);
+    			myGamePiece = new component(30, 30, "red", 10, 10);
+			}
+
+			var myGameArea = {
+				canvas :
+			document.createElement("canvas"),
+				start : function() {
+					this.canvas.width = 1200;
+					this.canvas.height = 600;
+					this.context = this.canvas.getContext("2d");
+					 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+				}
+			}
+			function component(width, height, color, x, y) {
+   				this.width = width;
+    			this.height = height;
+			    this.x = x;
+			    this.y = y;    
+			    ctx = myGameArea.context;
+			    ctx.fillStyle = color;
+			    ctx.fillRect(this.x, this.y, this.width, this.height);
 			}
 		</script>
-	</head>
+	</body>
 	<div>
 </html>
