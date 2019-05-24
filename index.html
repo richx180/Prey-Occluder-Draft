@@ -10,22 +10,21 @@
 		}
 	</style>
 </head>
-	<body onload="startGame()">>
+	<body onload="startGame()">
 		<script>
-			var myGamePiece;
-
+        "x" = Math.floor(Math.random() * 100) + 10;
+    	"y" = Math.floor(Math.random() * 100) + 10;
 			function startGame() {
    				myGameArea.start();
-    			myGamePiece = new component(50, 50, "blue");
-    			var xy = getRandomPosition(myGamePiece)
+    			myGamePiece = new component(10, 10, "blue", "x", "y");
 			}
 
 			var myGameArea = {
 				canvas :
 			document.createElement("canvas"),
 				start : function() {
-					this.canvas.width = 1350;
-					this.canvas.height = 600;
+					this.canvas.width = 200;
+					this.canvas.height = 200;
 					this.context = this.canvas.getContext("2d");
 					 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 				}
