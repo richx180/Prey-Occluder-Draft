@@ -12,8 +12,12 @@
 </head>
 	<body onload="startGame()">
 		<script>
-        "x" = Math.floor(Math.random() * 100) + 10;
-    	"y" = Math.floor(Math.random() * 100) + 10;
+        "x" = function getRandomFloat(10, 1340) {
+  			return Math.random() * (1340 - 10) + 10;
+  		}
+    	"y" = function getRandomFloat(10, 590) {
+  			return Math.random() * (590 - 10) + 10;
+    	}
 			function startGame() {
    				myGameArea.start();
     			myGamePiece = new component(50, 50, "blue", "x", "y");
