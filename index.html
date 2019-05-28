@@ -14,10 +14,7 @@
 		<script>
 			function startGame() {
    				myGameArea.start();
-   				function getRandomInt(max) {
-  					return Math.floor(Math.random() * Math.floor(max));
-				}
-    			myGamePiece = new component(50, 50, "blue", (console.log(getRandomInt(1340));), (console.log(getRandomInt(590)););
+    			myGamePiece = new component(50, 50, "blue", x, y);
 			}
 
 			var myGameArea = {
@@ -30,6 +27,8 @@
 					 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 				}
 			}
+            var x = Math.floor(Math.random()*1340);
+			var y = Math.floor(Math.random()*590);
 			function component(width, height, color, x, y) {
    				this.width = width;
     			this.height = height;
