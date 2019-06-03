@@ -3,7 +3,7 @@
 <head>
 	<style>
 		canvas {
-			position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; 
+			position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px;
 			margin: auto; 
 			border:1px solid #000000;
 			background-color: #f1f1f1;
@@ -13,13 +13,14 @@
 	<body onload="startGame()">
 		<script>
 			function startGame() {
-   				myGameArea.start();
-    			myGamePiece = new component(50, 50, "blue", x, y);
+   				myGameArea.start(); //pulls up canvas
+    			preyGamePiece = new component(50, 50, "blue", x, y); //prey
+    			occluderGamePiece = new component(100, 100, "black", a, b); //occluder
 			}
 
 			var myGameArea = {
 				canvas :
-			document.createElement("canvas"),
+			document.createElement("canvas"), //gives dimensions to previously created canvas and labels it as the Game Area
 				start : function() {
 					this.canvas.width = 1350;
 					this.canvas.height = 600;
@@ -27,8 +28,11 @@
 					 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 				}
 			}
-            var x = Math.floor(Math.random()*1250);
-			var y = Math.floor(Math.random()*500);
+	
+            var x = Math.floor(Math.random()*1250); //randomizes prey initial location upon refresh page (on x-axis)
+			var y = Math.floor(Math.random()*500); //randomizes prey initial location upon refresh page (on y-axis)
+			var a = Math.floor(Math.random()*1000); //randomized occluder initial location upon refresh (on x-axis)
+			var b = Math.floor(Math.random()*375); //randomized occluder initial location upon refresh (on y-axis)
 			function component(width, height, color, x, y) {
    				this.width = width;
     			this.height = height;
