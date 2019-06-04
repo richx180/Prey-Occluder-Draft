@@ -14,7 +14,7 @@
 		<script>
 			function startGame() {
    				myGameArea.start(); //pulls up canvas
-    			preyGamePiece = new component(50, 50, "blue", x, y); //prey
+    			preyGamePiece = new preyRect(50, 50, "blue", x, y); //prey
     			occluderGamePiece = new component(100, 100, "black", a, b); //occluder
 			}
 
@@ -31,8 +31,18 @@
 	
             var x = Math.floor(Math.random()*1250); //randomizes prey initial location upon refresh page (on x-axis)
 			var y = Math.floor(Math.random()*500); //randomizes prey initial location upon refresh page (on y-axis)
-			var a = 625
-			var b = 250
+			var a = 625 //occluder location x-axis
+			var b = 250 //occluder location y-axis
+			function preyRect(width, height, color, x, y) {
+   				this.width = width;
+    			this.height = height;
+			    this.x = x;
+			    this.y = y;    
+			    ctx = myGameArea.context;
+			    ctx.fillStyle = color;
+			    ctx.fillRect(this.x, this.y, this.width, this.height);
+			}
+
 			function component(width, height, color, x, y) {
    				this.width = width;
     			this.height = height;
@@ -42,6 +52,7 @@
 			    ctx.fillStyle = color;
 			    ctx.fillRect(this.x, this.y, this.width, this.height);
 			}
+
 		</script>
 	</body>
 	<div>
